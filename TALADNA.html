@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>THE DNA THAT SPOKE: Genetic Police Sketch</title>
+
+
+<style>
+* { box-sizing: border-box; }
+
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #020617, #000);
+  color: #e5e7eb;
+}
+
+
+.scene {
+  min-height: 100vh;
+  padding: 60px;
+  display: none;
+  animation: fade 1s ease forwards;
+}
+.scene.active { display: block; }
+
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.panel {
+  background: #020617;
+  border-left: 6px solid #facc15;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 0 20px rgba(250,204,21,0.15);
+}
+
+
+button {
+  background: #3b82f6;
+  border: none;
+  color: white;
+  padding: 14px 24px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #2563eb;
+  transform: scale(1.05);
+}
+
+
+/* BAG */
+.bag {
+  width: 260px;
+  height: 300px;
+  background: #1f2937;
+  border-radius: 25px;
+  margin: 40px auto;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 40px red;
+}
+.bag::before {
+  content: "🎒";
+  font-size: 160px;
+  position: absolute;
+  top: 50px;
+  left: 45px;
+}
+
+
+/* EVIDENCE */
+.evidence {
+  display: none;
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+.bomb {
+  font-size: 100px;
+  margin: 10px;
+}
+
+
+.hair {
+  width: 6px;
+  height: 60px;
+  background: #111;
+  margin: 20px auto;
+  border-radius: 3px;
+  cursor: pointer;
+  animation: glow 1.5s infinite alternate;
+}
+
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px gold; }
+  to { box-shadow: 0 0 15px gold; }
+}
+
+
+/* CHARACTER FACES */
+.character {
+  text-align: center;
+  background: #111827;
+  padding: 15px;
+  border-radius: 15px;
+  flex: 1 1 200px;
+  box-shadow: 0 0 20px rgba(250,204,21,0.2);
+}
+
+
+.face {
+  width: 80px;
+  height: 80px;
+  background: #fcd34d;
+  margin: 10px auto;
+  border-radius: 50%;
+  position: relative;
+}
+
+
+.eye {
+  width: 12px;
+  height: 12px;
+  background: #111;
+  border-radius: 50%;
+  position: absolute;
+  top: 25px;
+}
+
+
+.eye.left { left: 20px; }
+.eye.right { right: 20px; }
+
+
+.nose {
+  width: 8px;
+  height: 8px;
+  background: #111;
+  border-radius: 50%;
+  position: absolute;
+  top: 40px;
+  left: 36px;
+}
+
+
+.mouth {
+  width: 40px;
+  height: 6px;
+  background: #111;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- SCENE 1: CASE SUMMARY -->
+<section class="scene active" id="scene1">
+  <h1>🧬 THE DNA MYSTERY</h1>
+  <h2>Case Summary — Year 2045</h2>
+
+
+  <div class="panel">
+   <h2>By the yr 2045, DNA technology had sivnificantly advanced to the next level, allowing investigators to predict indiviyuals’ physical characteristics using their genetic materials. However, an unfortunate event tok place that year at the Port Authority. Investigators found an untetonated bomb inside an abandoned backpack, creating fear and terror. However, the bomb was not the only thing inside that backpack. A strand of hair was also ound there that is believed to belong to the suspect. That discovery was only the begining to this horrifying crime. Using the advanced DNA technolgy, the hair was examined and used to create a police sketch, making DNA the most important piece of evidence in the case. As the best renowned genetic sketch artist in New York, I was responsible for turning this genetic information into a sketch of the suspect. This drawing became a crucial tool that unfolded the crime.</h2>
+
+
+
+
+  <button onclick="nextScene()">Meet the Team</button>
+</section>
+
+
+<!-- SCENE 2: THE GENETIC TEAM -->
+<section class="scene" id="scene2">
+  <h2>Scene 2: The Genetic Team</h2>
+
+
+  <div style="display:flex; gap:40px; flex-wrap:wrap; justify-content:center; margin-top:30px;">
+
+
+    <!-- Detective Ramirez -->
+    <div class="character">
+      <h3>Detective </h3>
+      <div class="face detective">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="eyebrow left"></div>
+        <div class="eyebrow right"></div>
+        <div class="nose"></div>
+        <div class="mouth"></div>
+        <div class="badge">★</div>
+        <div class="hat"></div>
+        <div class="tie"></div>
+      </div>
+      Lead Investigator
+    </div>
+
+
+    <!-- Dr. Chen -->
+    <div class="character">
+      <h3>Doctor</h3>
+      <div class="face scientist">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="glasses left"></div>
+        <div class="glasses right"></div>
+        <div class="nose"></div>
+        <div class="mouth"></div>
+        <div class="labcoat"></div>
+        <div class="testtube"></div>
+      </div>
+      Molecular Biologist
+    </div>
+
+
+    <!-- You (Genetic Sketch Artist) -->
+    <div class="character">
+      <h3>Artist</h3>
+      <div class="face artist">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="nose"></div>
+        <div class="mouth"></div>
+        <div class="brush"></div>
+        <div class="palette"></div>
+      </div>
+      Genetic Sketch Artist
+    </div>
+
+
+  </div>
+
+
+  <!-- Detective Dialogue -->
+  <div style="text-align:center; margin-top:30px; font-size:18px; line-height:1.5;">
+    <strong>DETECTIVE :</strong><br>
+    “No fingerprints. No witnesses. But we did find this…”
+  </div>
+
+
+  <!-- Centered Button -->
+  <div style="text-align:center; margin-top:20px;">
+    <button onclick="nextScene()">Look at Evidence</button>
+  </div>
+
+
+  <!-- Character CSS -->
+  <style>
+    .character {
+      text-align:center;
+      background:#111827;
+      padding:20px;
+      border-radius:25px;
+      flex:1 1 250px;
+      max-width:250px;
+      box-shadow:0 0 35px rgba(250,204,21,0.4);
+    }
+
+
+    .face {
+      width:100px;
+      height:100px;
+      background:#fcd34d;
+      border-radius:50%;
+      position:relative;
+      margin:0 auto 15px;
+    }
+
+
+    .eye {
+      width:12px;
+      height:12px;
+      background:#111;
+      border-radius:50%;
+      position:absolute;
+      top:30px;
+    }
+    .eye.left { left:25px; }
+    .eye.right { right:25px; }
+
+
+    .eyebrow {
+      width:20px;
+      height:4px;
+      background:#111;
+      position:absolute;
+      top:20px;
+      border-radius:2px;
+    }
+    .eyebrow.left { left:20px; transform:rotate(-15deg);}
+    .eyebrow.right { right:20px; transform:rotate(15deg);}
+
+
+    .nose {
+      width:8px;
+      height:8px;
+      background:#111;
+      border-radius:50%;
+      position:absolute;
+      top:50px;
+      left:46px;
+    }
+
+
+    .mouth {
+      width:40px;
+      height:6px;
+      background:#111;
+      border-radius:3px;
+      position:absolute;
+      bottom:15px;
+      left:30px;
+    }
+
+
+    /* Detective Accessories */
+    .badge {
+      position:absolute;
+      top:-10px;
+      right:-10px;
+      background:#f59e0b;
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:white;
+      font-weight:bold;
+    }
+    .hat {
+      position:absolute;
+      width:80px;
+      height:20px;
+      background:#111;
+      top:-10px;
+      left:10px;
+      border-radius:10px 10px 0 0;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+    }
+    .tie {
+      position:absolute;
+      width:12px;
+      height:30px;
+      background:#dc2626;
+      bottom:-10px;
+      left:44px;
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    }
+
+
+    /* Scientist Accessories */
+    .glasses {
+      position:absolute;
+      width:20px;
+      height:10px;
+      border:2px solid #111;
+      top:28px;
+      border-radius:3px;
+    }
+    .glasses.left { left:18px;}
+    .glasses.right { right:18px;}
+    .labcoat {
+      position:absolute;
+      width:60px;
+      height:50px;
+      background:#fff;
+      bottom:-10px;
+      left:20px;
+      border-radius:10px;
+      box-shadow: inset 0 -5px #e5e7eb;
+    }
+    .testtube {
+      position:absolute;
+      width:8px;
+      height:25px;
+      background:#22c55e;
+      top:60px;
+      left:35px;
+      border-radius:2px;
+      transform:rotate(-20deg);
+    }
+
+
+    /* Artist Accessories */
+    .brush {
+      position:absolute;
+      width:6px;
+      height:40px;
+      background:#8b4513;
+      bottom:-10px;
+      left:47px;
+      border-radius:3px;
+      transform:rotate(-20deg);
+    }
+    .palette {
+      position:absolute;
+      width:30px;
+      height:20px;
+      background:linear-gradient(to right, #f87171, #facc15, #34d399);
+      border-radius:50%;
+      bottom:-5px;
+      left:35px;
+      transform:rotate(-15deg);
+    }
+  </style>
+</section>
+
+
+
+
+  </div>
+
+
+ 
+
+
+<!-- SCENE 3: EVIDENCE -->
+<section class="scene" id="scene3">
+  <h2>Scene 3: The Evidence</h2>
+
+
+  <div class="panel">
+    Click the backpack to inspect its contents.
+  </div>
+
+
+  <div class="bag" onclick="openBag()"></div>
+
+
+  <div class="evidence" id="evidence">
+    <div class="bomb">💣</div>
+    <div class="hair" onclick="nextScene()"></div>
+    <p><em>Click the strand of hair</em></p>
+  </div>
+</section>
+
+
+<script>
+let current = 1;
+
+
+function nextScene() {
+  document.getElementById("scene" + current).classList.remove("active");
+  current++;
+  document.getElementById("scene" + current).classList.add("active");
+}
+
+
+function openBag() {
+  document.getElementById("evidence").style.display = "block";
+}
+
+
+function analyzeHair() {
+  alert(
+    "Hair sample selected.\n\n" +
+    "Although hair contains mostly dead cells,\n" +
+    "DNA from the follicle can be extracted\n" +
+    "and used to predict physical traits."
+  );
+}
+</script>
+
+
+</body>
+</html>
+
+
+</script>
+
+<style>
+.panel {
+  background:#020617;
+  border-left:6px solid #facc15;
+  padding:25px;
+  margin:25px 0;
+  box-shadow:0 0 20px rgba(250,204,21,0.15);
+  position:relative;
+  overflow:hidden;
+}
+.speaker {
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+}
+.charIcon {
+  font-size:50px;
+}
+.face.sketch {
+  margin-top:15px;
+}
+.dnaIcon {
+  z-index:1000;
+}
+@keyframes moveDNA {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(50vw, 20vh); }
+  50% { transform: translate(80vw, 50vh); }
+  75% { transform: translate(20vw, 80vh); }
+  100% { transform: translate(0,0); }
+}
+</style>
+
+
+</style>
+
+</style>
+
+</script>
+</script>
+<!-- SCENE 4: DNA Lab Analysis -->
+<section class="scene" id="scene4">
+  <h2 style="font-size:32px;">Scene 4: Evidence and Analysis</h2>
+
+  <!-- Detective Intro -->
+  <div class="panel speaker" id="detectiveIntro4">
+    <div class="charIcon">🕵️‍♂️</div>
+    <strong>DETECTIVE</strong><br>
+    “We found this hair. Bring it to the lab immediately.”
+  </div>
+
+  <div style="text-align:center; margin-top:20px;">
+    <button onclick="nextStep4('doctorIntro4')">Take Hair to Lab</button>
+  </div>
+
+  <!-- Doctor Pages -->
+  <div class="panel speaker" id="doctorIntro4" style="display:none;">
+    <div class="charIcon">👩‍🔬</div>
+    <strong>DOCTOR</strong><br>
+    “Alright team, here is what we are dealing with. The hair sample was carefully preserved and brought to our lab. Our job is to analyze its DNA and predict what the suspect looks like. Every step has to be precise. Accuracy is everything here. We will go step by step, making sure we understand how DNA leads to proteins and physical traits.”
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="nextStep4('step1')">Next</button>
+    </div>
+  </div>
+
+  <div class="panel speaker" id="step1" style="display:none;">
+    <div class="charIcon">👩‍🔬</div>
+    <strong>DOCTOR</strong><br>
+    “Step One: We first clean the hair to remove any dirt, oils, or substances that could interfere. Next, we carefully break open the cells using mechanical methods and chemical solutions to release the DNA inside. The DNA is then separated from proteins, fats, and other things using purification techniques. A clean sample ensures that the genetic information is accurate. If DNA is contaminated, the results could be misleading. This step is critical to ensure all the information we find is accurate.”
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="nextStep4('step2')">Next</button>
+    </div>
+  </div>
+
+  <div class="panel speaker" id="step2" style="display:none;">
+    <div class="charIcon">👩‍🔬</div>
+    <strong>DOCTOR</strong><br>
+    “Step Two: We determine the exact order of the building blocks of DNA (nucleotides), which are adenine, thymine, cytosine, and guanine. This will help us understand the DNA code, which tells us information about physical traits like eye color, hair type, and face shape. Each trait corresponds to specific sequences in the DNA, so knowing the code is important for accurate predictions.”
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="nextStep4('step3')">Next</button>
+    </div>
+  </div>
+
+  <div class="panel speaker" id="step3" style="display:none;">
+    <div class="charIcon">👩‍🔬</div>
+    <strong>DOCTOR</strong><br>
+    “ Step Three: DNA contains all the instructions needed to make proteins, but it stays safely in the nucleus. To use these instructions, the DNA produces a molecule called messenger RNA, or mRNA. An enzyme called RNA polymerase reads the DNA strand and assembles the mRNA strand with complementary nucleotides, replacing thymine with uracil. The mRNA takes the instructions from the DNA out of the nucleus to the ribosome. Each set of three nucleotides on the mRNA is called a codon, and each codon codes for a specific amino acid.This step is essential because without mRNA, the genetic code cannot be turned into physical traits.”
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="nextStep4('step4')">Next</button>
+    </div>
+  </div>
+
+  <div class="panel speaker" id="step4" style="display:none;">
+    <div class="charIcon">👩‍🔬</div>
+    <strong>DOCTOR</strong><br>
+    “Step Four: At the ribosome, the mRNA codons are read one by one. Transfer RNA, or tRNA, brings the correct amino acids to the ribosome. The ribosome reads each codon, matches it with the tRNA carrying the matching amino acid, and links the amino acids together in a chain. This chain folds into a protein. Proteins are the molecules that determine physical traits such as hair type, eye color, face shape, and hairline. Transcription allows the DNA instructions to leave the nucleus as mRNA, and translation turns it into proteins, and those protens will determine the suspect’s appearance.”
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="nextStep4('step5')">Next</button>
+    </div>
+  </div>
+
+  <div class="panel speaker" id="step5" style="display:none;">
+    <div class="charIcon">👩‍🔬</div>
+    <strong>DOCTOR</strong><br>
+    “Step Five: After proteins are formed, we look at the traits they determi. Proteins generate physical characteristics. Here are the findings: Acu Ucg Gga Ugg Ccc Uac produce Threonine, Serine, Glycine, Tryptophan, Proline, Tyrosine, determining a round face with a pointy nose. Uac Ugc Caa Gaa Auu Gau produce Tyrosine, Cysteine, Glutamine, Glutamic acid, Isoleucine, Aspartic acid, determining male sex. Guu Uug Gaa Aaa Ucc Cau produce Valine, Leucine, Glutamic acid, Lysine, Serine, Histidine, determining a wide mouth with crooked teeth. Gug Gca Gau Ccc Acc Auu produce Valine, Alanine, Aspartic acid, Proline, Threonine, Isoleucine, determining brown eyes. Gcg Ggg Ucu Gaa Acu Uuu produce Alanine, Glycine, Serine, Glutamic acid, Threonine, Phenylalanine, determining straight hair. Gau Gaa Caa Aau Agg Ugu produce Aspartic acid, Glutamic acid, Glutamine, Asparagine, Arginine, Cysteine, determining a widow’s peak. --------------------------, determining large ears. Based on this, we predect the suspect is male with a round face, pointy nose, wide mouth with crooked teeth, brown eyes, straight hair with a widow’s peak, and large ears, and this information is ready to be passed to the artist to be drawn ”
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="nextStep4('artistPanel4')">Give Info to Artist</button>
+    </div>
+  </div>
+
+  <!-- Artist Drawing -->
+  <div class="panel speaker" id="artistPanel4" style="display:none;">
+    <div class="charIcon">🎨</div>
+    <strong>ARTIST</strong><br>
+    “Using the doctor’s analysis, I’ve drawn the suspect’s sketch.”
+    <div style="text-align:center; margin-top:20px;">
+      <div class="face sketch" style="width:120px; height:120px; background:#fcd34d; border-radius:50%; position:relative; margin:0 auto 15px;">
+        <div style="width:14px; height:14px; background:#111; border-radius:50%; position:absolute; top:40px; left:30px;"></div>
+        <div style="width:14px; height:14px; background:#111; border-radius:50%; position:absolute; top:40px; right:30px;"></div>
+        <div style="width:10px; height:10px; background:#111; border-radius:50%; position:absolute; top:65px; left:55px;"></div>
+        <div style="width:50px; height:6px; background:#111; border-radius:3px; position:absolute; bottom:25px; left:35px;"></div>
+        <div style="width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; border-bottom:25px solid #111; position:absolute; top:-10px; left:30px;"></div>
+        <div style="width:12px; height:12px; border-radius:50%; background:#111; position:absolute; top:-5px; left:20px;"></div>
+        <div style="width:12px; height:12px; border-radius:50%; background:#111; position:absolute; top:-5px; right:20px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating DNA across screen -->
+  <div class="dnaFloatingScreen"></div>
+</section>
+
+<script>
+function nextStep4(step) {
+  const panels4 = ['detectiveIntro4','doctorIntro4','step1','step2','step3','step4','step5','artistPanel4'];
+  panels4.forEach(p => document.getElementById(p).style.display = 'none');
+  document.getElementById(step).style.display = 'block';
+}
+
+// Floating DNA animation
+const dnaContainer = document.querySelector('.dnaFloatingScreen');
+for (let i = 0; i < 5; i++) {
+  const dna = document.createElement('div');
+  dna.className = 'dnaIcon';
+  dna.textContent = '🧬';
+  dna.style.left = Math.random() * 100 + 'vw';
+  dna.style.top = Math.random() * 100 + 'vh';
+  dna.style.animationDuration = (3 + Math.random() * 4) + 's';
+  dna.style.fontSize = '35px';
+  dnaContainer.appendChild(dna);
+}
+</script>
+
+<style>
+body {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 22px;
+  line-height: 1.8;
+  background: radial-gradient(circle at top, #020617, #000);
+  color: #e5e7eb;
+  margin: 0;
+  padding: 0;
+}
+.panel {
+  background:#020617;
+  border-left:6px solid #facc15;
+  padding:30px;
+  margin:25px 0;
+  box-shadow:0 0 25px rgba(250,204,21,0.2);
+  position:relative;
+  overflow:hidden;
+  font-size:22px;
+}
+.speaker {
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+}
+.charIcon {
+  font-size:60px;
+}
+.face.sketch {
+  position:relative;
+}
+.dnaFloatingScreen {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1;
+}
+.dnaIcon {
+  position:absolute;
+  animation-name:floatDNA;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+@keyframes floatDNA {
+  0% { transform: translateY(0) translateX(0); opacity:0.8; }
+  50% { transform: translateY(-50px) translateX(50px) rotate(180deg); opacity:0.9; }
+  100% { transform: translateY(-100px) translateX(100px) rotate(360deg); opacity:0.8; }
+}
+</style>
+
+</script>
+
+<style>
+.panel {
+  background:#020617;
+  border-left:6px solid #facc15;
+  padding:25px;
+  margin:25px 0;
+  box-shadow:0 0 20px rgba(250,204,21,0.15);
+  position:relative;
+  overflow:hidden;
+}
+.speaker {
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.charIcon {
+  font-size:50px;
+}
+
+/* DNA floating inside panel */
+.dna {
+  position:absolute;
+  font-size:20px;
+  animation: floatDNA 6s infinite;
+  top:0; left:0;
+}
+.dna:nth-child(1){left:10%; animation-delay:0s;}
+.dna:nth-child(2){left:30%; animation-delay:1s;}
+.dna:nth-child(3){left:50%; animation-delay:2s;}
+.dna:nth-child(4){left:70%; animation-delay:3s;}
+.dna:nth-child(5){left:90%; animation-delay:4s;}
+
+@keyframes floatDNA {
+  0%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(30px) rotate(180deg);}
+  100%{transform:translateY(0) rotate(360deg);}
+}
+</style>
